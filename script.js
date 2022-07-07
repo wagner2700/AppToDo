@@ -10,34 +10,66 @@ const msg01 = 'Minimo 6 Caracteres'
 
 const msg02 = 'Formato de E-mail Inválido'
 
+const comentarioArray = []
 
+const storage = window.localStorage
+
+const regexNum = /[a-z0-9.]+@[a-z0-9]+.[a-z]+(.[a-z]+)?$/
 
 btnSubmit.addEventListener('click' , (event)=>{
-event.preventDefault()
+event.preventDefault();
 
 console.log('clicou prevent')
-})
+
+
+});
+
+// if(email.value.length > 0){
+
+  
+ 
+
+ 
+// }
+
+// 
+// })
+
+
+
+if(localStorage.email){ 
+document.getElementById('inputEmail').value = localStorage.email
+}
+
+
+var salvarData = function(){
+ 
+
+  var emailLocalStorage = document.querySelector('.email').value
+  storage.setItem('email' , emailLocalStorage)
+  console.log(emailLocalStorage)
+  
+}
 
 
 
 
 const validacao = () => {
-  if(password.value.length == 0  && email.value.indexOf('@') == -1 || email.value.indexOf('.') == -1 ||email.value.indexOf('.') - email.value.indexOf('@') == 1 ) {
-    mensagem('block', msg01)
-    habilitaBtn(false)
-    console.log('desabilitado')
+  if( regexNum.test(email.value)) {
     
-  if(email.value.length <= 3){
-    mensagem('block', msg01)
-    habilitaBtn(false)
-    console.log('desabilitado')
-  }
-
-  } else {
-
+    
+    
     mensagem('none', '')
     habilitaBtn(true)
     console.log('habilitado')
+    
+    
+
+  } else {
+    mensagem('block', msg01)
+    habilitaBtn(false)
+    console.log('desabilitado')
+
    
   }
 
@@ -62,10 +94,10 @@ const mensagem = function (display, text) {
 
 
 
-document.addEventListener('change', validacao)
+document.addEventListener('change',validacao)
+document.onchange = salvarData
 
 
 
-
+// password.value.length == 0  && email.value.indexOf('@') == -1 || email.value.indexOf('.') == -1 ||email.value.indexOf('.') - email.value.indexOf('@') == 1
 // const regexNum = /^[a-z0-9.]+@[a-z0-9]+.[a-z]+(.[a-z]+)?$/
- 

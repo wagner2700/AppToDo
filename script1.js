@@ -63,6 +63,9 @@ let validacao = () => {
 };
 document.addEventListener("change", validacao);
 
-btnSubmit.addEventListener("click", (e) => {
-  e.preventDefault();
-});
+// btnSubmit.addEventListener("click", (e) => {
+//   e.preventDefault();
+
+//   if()
+
+// });
